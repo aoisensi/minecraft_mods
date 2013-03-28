@@ -107,7 +107,6 @@ public class ItemPadlock extends Item {
 			tileEntityChest.setInventorySlotContents(i, null);
 		}
 		world.setBlock(x, y, z, padlockedBlock, metadeta, 3);
-		world.setBlock(x, y, z, padlockedBlock, metadeta, 3);
 		world.setBlockTileEntity(x, y, z, newTileEntityChest);
 		
 	}

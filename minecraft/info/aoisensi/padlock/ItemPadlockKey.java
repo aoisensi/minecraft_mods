@@ -78,7 +78,6 @@ public class ItemPadlockKey extends ItemPadlock {
 			tileEntityChest.setInventorySlotContents(i, null);
 		}
 		world.setBlock(x, y, z, unpadlockedBlock, metadeta, 3);
-		world.setBlock(x, y, z, unpadlockedBlock, metadeta, 3);
 		world.setBlockTileEntity(x, y, z, newTileEntityChest);
 	}
 }
