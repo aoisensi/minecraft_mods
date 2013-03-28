@@ -1,0 +1,6 @@
+/minecraft/*
+/minecraft/.*
+!/minecraft/info
+!/minecraft/mods
+/minecraft/info/*
+!/minecraft/info/aoisensi
