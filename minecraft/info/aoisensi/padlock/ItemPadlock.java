@@ -106,6 +106,15 @@ public class ItemPadlock extends Item {
 			newTileEntityChest.setInventorySlotContents(i, tileEntityChest.getStackInSlot(i));
 			tileEntityChest.setInventorySlotContents(i, null);
 		}
+		newTileEntityChest.adjacentChestChecked = tileEntityChest.adjacentChestChecked;
+		newTileEntityChest.adjacentChestZNeg = tileEntityChest.adjacentChestZNeg;
+		newTileEntityChest.adjacentChestXPos = tileEntityChest.adjacentChestXPos;
+		newTileEntityChest.adjacentChestXNeg = tileEntityChest.adjacentChestXNeg;
+		newTileEntityChest.adjacentChestZPosition = tileEntityChest.adjacentChestZPosition;
+		newTileEntityChest.lidAngle = tileEntityChest.lidAngle;
+		newTileEntityChest.prevLidAngle = tileEntityChest.prevLidAngle;
+		newTileEntityChest.numUsingPlayers = tileEntityChest.numUsingPlayers;
+		
 		world.setBlock(x, y, z, padlockedBlock, metadeta, 3);
 		world.setBlockTileEntity(x, y, z, newTileEntityChest);
 		
