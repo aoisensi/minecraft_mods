@@ -1,6 +1,5 @@
 package info.aoisensi.padlock;
 
-import sun.font.TrueTypeFont;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.entity.player.EntityPlayer;

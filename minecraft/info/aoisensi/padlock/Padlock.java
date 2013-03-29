@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.BlockLockedChest;
@@ -28,7 +26,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
  
-//@Mod(modid="aoisensi_padlock", name="PadLock", version="0.0.2")
+@Mod(modid="aoisensi_padlock", name="PadLock", version="0.0.3")
 
 @NetworkMod(clientSideRequired=true, serverSideRequired=true)
 public class Padlock {

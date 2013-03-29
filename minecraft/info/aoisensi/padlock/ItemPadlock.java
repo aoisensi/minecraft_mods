@@ -71,7 +71,10 @@ public class ItemPadlock extends Item {
 	
 	@Override
 	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		player.sendChatToPlayer(String.format("metadeta:%d blockid:%d", world.getBlockMetadata(x, y, z), world.getBlockId(x, y, z)));
+		if(world.isRemote) {
+			return false;
+		}
+
 		int blockId = world.getBlockId(x, y, z);
 		if(PadlockAbleList.containsUnpadlocked(blockId)) {
 			int metadeta = world.getBlockMetadata(x, y, z);
@@ -106,7 +109,6 @@ public class ItemPadlock extends Item {
 	}
 	
 	private void padlockChest(World world, int x, int y, int z, int padlockedBlock, int metadeta) {
-		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa");
 		TileEntityChest tileEntityChest = (TileEntityChest)world.getBlockTileEntity(x, y, z);
 		TileEntityChest newTileEntityChest = new TileEntityChest();
 		for(int i=0;i<tileEntityChest.getSizeInventory();++i) {
@@ -122,7 +124,9 @@ public class ItemPadlock extends Item {
 		newTileEntityChest.prevLidAngle = tileEntityChest.prevLidAngle;
 		newTileEntityChest.numUsingPlayers = tileEntityChest.numUsingPlayers;
 		
-		world.setBlock(x, y, z, padlockedBlock, metadeta, 3);
+		world.setBlock(x, y, z, padlockedBlock);
 		world.setBlockTileEntity(x, y, z, newTileEntityChest);
+		world.setBlockMetadataWithNotify(x, y, z, metadeta, 3);
+		world.markBlockForUpdate(x, y, z);
 	}
 }

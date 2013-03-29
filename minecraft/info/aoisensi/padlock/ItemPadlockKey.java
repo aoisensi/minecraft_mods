@@ -36,7 +36,10 @@ public class ItemPadlockKey extends ItemPadlock {
 	
 	@Override
 	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		player.sendChatToPlayer(String.format("metadeta:%d blockid:%d", world.getBlockMetadata(x, y, z), world.getBlockId(x, y, z)));
+		if(world.isRemote) {
+			return false;
+		}
+		
 		int blockId = world.getBlockId(x, y, z);
 		if(PadlockAbleList.containsPadlocked(blockId)) {
 			int metadeta = world.getBlockMetadata(x, y, z);
@@ -85,7 +88,10 @@ public class ItemPadlockKey extends ItemPadlock {
 		newTileEntityChest.lidAngle = tileEntityChest.lidAngle;
 		newTileEntityChest.prevLidAngle = tileEntityChest.prevLidAngle;
 		newTileEntityChest.numUsingPlayers = tileEntityChest.numUsingPlayers;
-		world.setBlock(x, y, z, unpadlockedBlock, metadeta, 3);
+		
+		world.setBlock(x, y, z, unpadlockedBlock);
 		world.setBlockTileEntity(x, y, z, newTileEntityChest);
+		world.setBlockMetadataWithNotify(x, y, z, metadeta, 3);
+		world.markBlockForUpdate(x, y, z);
 	}
 }
