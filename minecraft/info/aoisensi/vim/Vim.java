@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "Vim", name = "Vim", version = "0.0.1")
+//@Mod(modid = "Vim", name = "Vim", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class Vim {
 
@@ -27,7 +27,7 @@ public class Vim {
 	@Instance("Generic")
 	public static Vim instance;
 
-	@Init
+//	@Init
 	public void load(FMLInitializationEvent event) {
 		GameRegistry.registerBlock(blockVim, "vim");
 		MinecraftForge.setBlockHarvestLevel(blockVim, "pickaxe", 2);

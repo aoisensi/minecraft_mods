@@ -11,7 +11,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
  
-@Mod(modid="aoisensi_customeskins", name="CustomeSkins", version="0.0.0")
+//@Mod(modid="aoisensi_customeskins", name="CustomeSkins", version="0.0.0")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class Generic {
  

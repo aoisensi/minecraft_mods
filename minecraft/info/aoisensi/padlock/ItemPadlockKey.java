@@ -85,7 +85,6 @@ public class ItemPadlockKey extends ItemPadlock {
 		newTileEntityChest.lidAngle = tileEntityChest.lidAngle;
 		newTileEntityChest.prevLidAngle = tileEntityChest.prevLidAngle;
 		newTileEntityChest.numUsingPlayers = tileEntityChest.numUsingPlayers;
-		
 		world.setBlock(x, y, z, unpadlockedBlock, metadeta, 3);
 		world.setBlockTileEntity(x, y, z, newTileEntityChest);
 	}

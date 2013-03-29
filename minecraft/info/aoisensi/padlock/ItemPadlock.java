@@ -63,6 +63,12 @@ public class ItemPadlock extends Item {
 //		par3List.add(Integer.toString(key));
 	}
 	
+	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+	{
+		par2EntityPlayer.sendChatToPlayer("onItemUse");
+		return false;
+	}
+	
 	@Override
 	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		player.sendChatToPlayer(String.format("metadeta:%d blockid:%d", world.getBlockMetadata(x, y, z), world.getBlockId(x, y, z)));
@@ -100,6 +106,7 @@ public class ItemPadlock extends Item {
 	}
 	
 	private void padlockChest(World world, int x, int y, int z, int padlockedBlock, int metadeta) {
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa");
 		TileEntityChest tileEntityChest = (TileEntityChest)world.getBlockTileEntity(x, y, z);
 		TileEntityChest newTileEntityChest = new TileEntityChest();
 		for(int i=0;i<tileEntityChest.getSizeInventory();++i) {
@@ -117,6 +124,5 @@ public class ItemPadlock extends Item {
 		
 		world.setBlock(x, y, z, padlockedBlock, metadeta, 3);
 		world.setBlockTileEntity(x, y, z, newTileEntityChest);
-		
 	}
 }

@@ -28,7 +28,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
  
-@Mod(modid="aoisensi_padlock", name="PadLock", version="0.0.2")
+//@Mod(modid="aoisensi_padlock", name="PadLock", version="0.0.2")
 
 @NetworkMod(clientSideRequired=true, serverSideRequired=true)
 public class Padlock {
@@ -47,7 +47,7 @@ public class Padlock {
 	public final static Block blockPadlockedTrapChest = new BlockPadlockedChest(502, 0, Block.chestTrapped.blockID)
 	.setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("chestTrapPadlocked");
 
-	@Instance("Setup")
+	@Instance("Padlock")
 	public static Padlock instance;
 
 	@PreInit
